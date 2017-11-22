@@ -15,6 +15,6 @@ const pg = require('knex')({
 });
 
 
-pg.select('famous_people').where('first_name', '=', argv[0]).then((err, row) => {
+pg('famous_people').where('first_name', '=', argv[0]).then((err, row) => {
 	console.log(row);
 });

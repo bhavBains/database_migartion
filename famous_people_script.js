@@ -23,6 +23,12 @@ client.connect((err) => {
   if (err) {
     return console.error("Connection Error", err);
   }
+  
+  // client.query(`SELECT * FROM famous_people WHERE last_name = $1`, [argv[0]], (err, result) => {
+  //   console.log(result.rows)
+  // })
+
+
   getFirstName(argv[0], (err, result) => {
     if (err) {
       return console.error("error running query", err);
@@ -35,10 +41,8 @@ client.connect((err) => {
       return console.error("error running query", err);
     }
     console.log(result.rows);
-  client.end();
+  
+    client.end();
   });
-
   
 });
-
-
